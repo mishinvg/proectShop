@@ -3,4 +3,18 @@ main{
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    h2,p,b{
+        margin: 10px 20px;
+        color: #501010;
+    }
+    p{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    b{
+        color: #112b52b4;
+        font-size: 20px;
+    }
+ 
 }

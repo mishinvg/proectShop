@@ -1,4 +1,5 @@
 header{
+    position: relative;
     
     .logo{
         font-weight: 900;
@@ -17,18 +18,41 @@ header{
             font-size: 15px;
             font-weight: 600;
             transition: opacity 500ms ease;
-        }
-
-        li:hover{
+        
+             &:hover{
             opacity: 0.5;
 
+            }
         }
-
-
-
     }
 
+    .shopCartButton{
+        float: right;
+        cursor: pointer;
+        font-size: 25px;
+        transition: color,transform 500ms ease;
 
+
+        &:hover, 
+        &.active{
+        color: rgb(238, 78, 15);
+        transform: scale(1.5);
+        }
+    }
+    
+    .shopCart{
+        position: absolute;
+        top: 30px;
+        right: 0;
+        width: 450px;
+        min-height: 100px;
+        background: rgb(97, 120, 167);
+        -webkit-box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
+        -moz-box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
+        box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
+        z-index: 1000;
+
+    }
 
     .presentation{
         margin: 50px 0;
@@ -41,24 +65,25 @@ header{
         background-color: #595b61;
         position: relative;
         border-radius: 15px;
-    }
-
-    .presentation::after{
-        content: "Лучшие товары для вашей семьи";
+    
+       &::after{
+        content: "Лучшие продукты для вашей семьи";
         color: rgb(58, 184, 223);
         position: absolute;
         top: 100px;
         left: 50px;
-        width: 350px;
+        width: 400px;
         font-size: 45px;
-    }
-    .presentation::before{
+        }
+       
+        &::before{
         content: "по низкой цене";
         color: rgb(58, 184, 223);
         position: absolute;
         top: 250px;
         left: 50px;
-        width: 350px;
+        width: 400px;
         font-size: 40px;
+        }
     }
 }

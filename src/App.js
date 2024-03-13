@@ -27,7 +27,7 @@ export default function App() {
     {
       id: 3,
       title: 'малина',
-      img: 'мвлинв.jpg',
+      img: 'малина.jpg',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lectus risus, finibus ornare vestibulum et, feugiat quis dui. Vivamus sit amet dolor et magna facilisis rhoncus. Curabitur maximus est sed porta scelerisque. Sed suscipit, arcu volutpat feugiat posuere, eros nisi tristique nibh, mollis vehicula lectus tortor eu purus. Donec ut tortor blandit, sagittis diam eget, suscipit eros. Quisque at magna neque. Nulla faucibus mi at nunc mattis placerat. Pellentesque quis augue quis elit tristique auctor. Integer varius est orci, vel egestas felis dictum nec. Phasellus porta ex sit amet turpis finibus, sed vestibulum nisl efficitur. Praesent ultrices diam enim. In ut tellus sed sem placerat sollicitudin. Donec quis mollis dolor.',
       category: 'ягоды',
       price: '500'
@@ -88,14 +88,22 @@ export default function App() {
       category: 'овощи',
       price: '80'
     },
-  ]
-  );
+  ]);
+
+  const [orders,setOrders]=useState([]);
+
+  const addToOrder=(item)=>{
+    if(!orders.some((el)=>el.id===item.id)){
+      setOrders([...orders,item]);
+    }
+  }
+
 
 
   return (
     <div className="wrapper">
-      <Header />
-      <Items allItems={items}/>
+      <Header orders={orders}/>
+      <Items allItems={items} onAdd={addToOrder}/>
       <Footer />
     </div>
   );
