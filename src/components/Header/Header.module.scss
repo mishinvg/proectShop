@@ -1,89 +1,99 @@
-header{
+header {
     position: relative;
-    
-    .logo{
-        font-weight: 900;
-        font-style: italic;
-        font-size: 32px;
+
+    .empty {
+        h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
     }
 
-    .nav{
+    .summa{
+        float: left;
+        width: 100%;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        font-weight: 600;
+        font-size: 26px;
+    }
+
+    .nav {
         float: right;
         list-style: none;
 
-        li{
+        li {
             display: inline;
             margin-left: 25px;
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
             transition: opacity 500ms ease;
-        
-             &:hover{
-            opacity: 0.5;
 
+            &:hover {
+                opacity: 0.5;
             }
         }
     }
 
-    .shopCartButton{
+    .shopCartButton {
         float: right;
         cursor: pointer;
-        font-size: 25px;
-        transition: color,transform 500ms ease;
+        font-size: 20px;
+        transition: color, transform 500ms ease;
 
-
-        &:hover, 
-        &.active{
-        color: rgb(238, 78, 15);
-        transform: scale(1.5);
+        &:hover,
+        &.active {
+            color: rgb(255, 0, 0) !important;
+            transform: scale(1.5);
         }
     }
-    
-    .shopCart{
+
+    .shopCart {
         position: absolute;
         top: 30px;
         right: 0;
         width: 450px;
         min-height: 100px;
-        background: rgb(97, 120, 167);
-        -webkit-box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
-        -moz-box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
-        box-shadow: -23px 22px 16px 7px rgba(34, 60, 80, 0.25);
+        background: #258bad;
+        box-shadow: -20px 20px 22px 12px rgba(7, 7, 7, 0.23);
         z-index: 1000;
-
+        padding: 20px;
+        padding-bottom: 0;
+        border-radius: 15px;
     }
 
-    .presentation{
+    .presentation {
         margin: 50px 0;
         background: url(./../../Images/Logo.jpeg) no-repeat;
         width: 100%;
         height: 500px;
         background-size: cover;
         background-position: center center;
-        background-blend-mode: multiply;
-        background-color: #595b61;
         position: relative;
         border-radius: 15px;
-    
-       &::after{
-        content: "Лучшие продукты для вашей семьи";
-        color: rgb(58, 184, 223);
-        position: absolute;
-        top: 100px;
-        left: 50px;
-        width: 400px;
-        font-size: 45px;
+
+        &::after {
+            content: 'Лучшая электроника для вашей семьи';
+            color: antiquewhite;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 370px;
+            font-size: 40px;
         }
-       
-        &::before{
-        content: "по низкой цене";
-        color: rgb(58, 184, 223);
-        position: absolute;
-        top: 250px;
-        left: 50px;
-        width: 400px;
-        font-size: 40px;
+
+        &::before {
+            content: 'по низкой цене';
+            color: antiquewhite;
+            position: absolute;
+            top: 260px;
+            left: 50px;
+            width: 350px;
+            font-size: 35px;
         }
     }
 }
