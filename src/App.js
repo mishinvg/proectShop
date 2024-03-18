@@ -1,16 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Items from "./components/Items";
 import Footer from "./components/Footer";
 import "./index.scss";
+import Categories from "./components/Categories";
+import ShowFullItem from "./components/ShowFullItem";
+import Item from "./components/Item";
 
 export default function App() {
 
   const [items, setItems] = useState([
     {
       id: 1,
-      title: 'Ананас',
+      title: 'ананас',
       img: 'ananas.jpeg',
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lectus risus, finibus ornare vestibulum et, feugiat quis dui. Vivamus sit amet dolor et magna facilisis rhoncus. Curabitur maximus est sed porta scelerisque. Sed suscipit, arcu volutpat feugiat posuere, eros nisi tristique nibh, mollis vehicula lectus tortor eu purus. Donec ut tortor blandit, sagittis diam eget, suscipit eros.',
       category: 'фрукты',
@@ -91,9 +94,18 @@ export default function App() {
   ]);
 
   const [orders,setOrders]=useState([]);
+  const[currentItems,setCurrentItems]=useState([]);
+  const[showFullItem, setShowFullItem]=useState(false);
+  const[fullItem,setFullItem]=useState({});
+
+  useEffect(()=>{
+    setCurrentItems(items);
+  },[items]);
+
+
 
   const deleteOrder=(id)=>{
-    setOrders(orders.filter((el)=>el.id!=id));
+    setOrders(orders.filter((el)=>el.id!==id));
   }
 
   const addToOrder=(item)=>{
@@ -104,12 +116,26 @@ export default function App() {
     //setOrders([...orders,item]);
   }
 
+const chooseCategory = (category)=>{
+  if(category==="all"){
+    setCurrentItems(items);
+  } 
+  else{
+    setCurrentItems(items.filter((el)=>el.category===category));
+  }
+}
 
+const onShowItem = (item) =>{
+  setFullItem(item);
+  setShowFullItem(!showFullItem);
+}
 
   return (
     <div className="wrapper">
       <Header orders={orders} onDelete={deleteOrder} />
-      <Items allItems={items} onAdd={addToOrder}/>
+      <Categories chooseCategory={chooseCategory}/>
+      <Items allItems={currentItems} onShowItem={onShowItem} onAdd={addToOrder}/>
+      {showFullItem && <ShowFullItem onShowItem={onShowItem} onAdd={addToOrder} item={fullItem}/>}
       <Footer />
     </div>
   );
