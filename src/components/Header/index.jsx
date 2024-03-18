@@ -3,10 +3,7 @@ import styles from "./Header.module.scss";
 import { SlBasket } from "react-icons/sl";
 import Orders from "../Orders";
 
-export default function Header(props) {
-    let [cartOpen, setCartOpen] = useState(false);
-
-    const showOrders=(props)=>{
+const showOrders=(props)=>{
         let summa=0;
         props.orders.forEach(el=>summa+=Number.parseFloat(el.price));
         return(
@@ -21,11 +18,16 @@ export default function Header(props) {
     
     const showNothing=()=>{
         return(
-            <div className={styles.empry}>
+            <div className={styles.empty}>
                 <h2>Товары отсутствуют в карзине</h2>
             </div>
         );
     }
+
+    export default function Header(props) {
+    let [cartOpen, setCartOpen] = useState(false);
+
+    
 
     return (
         <header>
